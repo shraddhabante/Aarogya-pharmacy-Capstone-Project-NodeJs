@@ -1,12 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <script src="custInfo.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #61876E;
+            z-index: 100;
+        }
+
+        .content {
+            position: relative;
+            left: 250px;
+            width: calc(100%-250px);
+            height: 100vh;
+            background: white;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .adminImg {
+            width: 30%;
+            height: 10%;
+            margin-left: 80px;
+        }
+
+        a,
+        li {
+            text-decoration: none;
+            list-style-type: none;
+            margin-bottom: 5px;
+            font-size: 18px;
+            color: black;
+            color: white;
+        }
+    </style>
 </head>
+
 <body>
-    <h2>Welcome to my Home page!</h2>
+    <nav class="sidebar text-white">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOciWshHkTzFKgiKMJHUOW3OSQQ8Dv1A8ZWKkYZ2nKPgMmy7MOETlpjOp62raFIl-IOt0&usqp=CAU"
+            class="adminImg mt-3" />
+        <h5 class="text-center">Admin</h5>
+        <h3 class="m-3">Dashboard</h3>
+        <ul class="mt-4">
+            <li><a href="#customer">Customer Details</a></li>
+            <li><a href="#category">Category Details</a></li>
+            <li><a href="#product">Product Details</a></li>
+        </ul>
+        <!-- <li class="nav-item">
+            <a class="nav-link" href="#customer" style="list-style-type: none;">Customer Details</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#category">Category</a>
+        </li> -->
+    </nav>
+    <main class="content">
+        <h2 class="text-center text-light bg-success p-3 text-dark bg-opacity-50">Welcome to admin home page</h2>
+        <br />
+        <div id="customer" class="m-2">
+            <button onclick="showAllCustomers()">Show Customers</button>
+            <span id="display"></span>
+        </div>
+
+        <div id="Category" class="m-3">
+            <form>
+                <h2>Add Category Details</h2>
+                <label>Enter Id:</label>
+                <input type="number" id="_id" class="m-1"><br />
+                <label>Disease Name:</label>
+                <input type="text" id="dname" class="m-1"><br />
+                <input type="button" value="Add Category" onclick="addCategory()" />
+                <input type="reset" value="Reset" />
+                <input type="button" value="View All Category" onclick="viewAllCategory()">
+            </form>
+            <span id="addCategory" style="color: blue;"></span>
+            <span id="viewCategory"></span>
+        </div>
+
+        <div id="product" class="m-3">
+            <form>
+                <h2>Add Product Deatils</h2>
+                <label>Product Id:</label>
+                <input type="number" id="_id" class="m-1"><br />
+                <label>Product Name:</label>
+                <input type="text" id="pname" class="m-1"><br />
+                <label>Product Price:</label>
+                <input type="number" id="price" class="m-1"><br />
+                <label>Product Quantity:</label>
+                <input type="number" id="quantity" class="m-1"><br />
+                <label>Category Id:</label>
+                <input type="number" id="categoryId" class="m-1"><br />
+                <input type="button" value="Add Product" onclick="addProduct()" />
+                <input type="reset" value="Reset" />
+                <input type="button" value="View All Product" onclick="viewAllProduct()" />
+            </form>
+            <p id="addProduct" style="color: blue;"></p>
+            <p id="viewProduct"></p>
+        </div>
+    </main>
 </body>
+
 </html>

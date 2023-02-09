@@ -7,4 +7,6 @@ let loginController=require("../controller/loginController");
 router.post("/signUpData",loginController.signUpData)
 
 router.post("/signInData",loginController.signInData)
+router.get("/showAllCustomers",loginController.showAllCustomers)
+router.post("/findUserByEmailId",loginController.findUserByEmailId)
 module.exports=router;

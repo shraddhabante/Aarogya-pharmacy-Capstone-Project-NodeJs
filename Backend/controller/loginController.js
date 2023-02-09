@@ -8,11 +8,11 @@ let signUpData = async (request, response) => {
     // response.send("done")
     try {
         if (login.type_of_user == "admin") {
-            response.json({"msg":"Admin can't create account"})
+            response.json({ "msg": "Admin can't create account" })
         } else {
             let result = await loginModel.insertMany(login);
             if (result != null) {
-                response.json({"msg":"Customer account created"})
+                response.json({ "msg": "Customer account created" })
             }
         }
     } catch (err) {
@@ -38,5 +38,28 @@ let signInData = async (request, response) => {
     }
 }
 
+let showAllCustomers = async (request, response) => {
+    try {
+        let result = await loginModel.find({});
+        var res = JSON.stringify(result)
+        response.send(res);
+    } catch (err) {
+        response.json(err);
+    }
+}
 
-module.exports = { signUpData, signInData };
+let findUserByEmailId = async (request, response) => {
+    let email = request.body.emailId;
+    try {
+        let result = await loginModel.findOne({ emailId: email });
+        // response.json(result);
+        if (result != null) {
+            var res=JSON.stringify(result)
+            response.send(res)
+        }
+    } catch (err) {
+        // response.json(err)
+        response.send("There is no customer exist with email id as "+emailId)
+    }
+}
+module.exports = { signUpData, signInData, showAllCustomers,findUserByEmailId};

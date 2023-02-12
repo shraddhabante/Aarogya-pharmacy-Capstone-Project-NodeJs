@@ -8,5 +8,5 @@ router.post("/signUpData",loginController.signUpData)
 
 router.post("/signInData",loginController.signInData)
 router.get("/showAllCustomers",loginController.showAllCustomers)
-router.post("/findUserByEmailId",loginController.findUserByEmailId)
+router.get("/findUserByEmailId/:emailId",loginController.findUserByEmailId)
 module.exports=router;

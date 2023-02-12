@@ -13,6 +13,7 @@ let signUpData = async (request, response) => {
             let result = await loginModel.insertMany(login);
             if (result != null) {
                 response.json({ "msg": "Customer account created" })
+                // console.log(result);
             }
         }
     } catch (err) {
@@ -40,26 +41,37 @@ let signInData = async (request, response) => {
 
 let showAllCustomers = async (request, response) => {
     try {
-        let result = await loginModel.find({});
-        var res = JSON.stringify(result)
-        response.send(res);
+        let result = await loginModel.find({type_of_user:{$ne:"admin"}});
+        response.send(result);
+        //var res = JSON.stringify(result)
+        // response.json(result);
+        // // console.log(result)
     } catch (err) {
         response.json(err);
     }
 }
 
 let findUserByEmailId = async (request, response) => {
-    let email = request.body.emailId;
     try {
+        let email = request.params.emailId;
         let result = await loginModel.findOne({ emailId: email });
-        // response.json(result);
-        if (result != null) {
-            var res=JSON.stringify(result)
-            response.send(res)
-        }
+        response.json(result);
+        // if (result != null) {
+        //     var res=JSON.stringify(result)
+        //     response.send(res)
+        // }
     } catch (err) {
-        // response.json(err)
-        response.send("There is no customer exist with email id as "+emailId)
+        response.json(err)
+        // response.send("There is no customer exist with email id as "+emailId)
     }
 }
+// let findStudentByName= async (reqeust,response)=> {
+//     try {
+//         let fname = reqeust.params.fname;
+//         let result = await studentModel.find({first_name:fname});
+//         response.json(result);
+//     } catch (error) {
+//         response.json(error);
+//     }
+// }
 module.exports = { signUpData, signInData, showAllCustomers,findUserByEmailId};

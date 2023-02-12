@@ -1,0 +1,22 @@
+.categoryTab,tr,td{
+    border: 1px solid black;
+    width: 50%;
+    margin: 30px 200px;
+    border-collapse: collapse;
+    color: black;
+}
+.tr{
+    background-color: aquamarine;
+}
+
+/* .prodTable,tr,td{
+    border: 1px solid black;
+    width: 50%;
+    margin: 30px 200px;
+    border-collapse: collapse;
+    color: black;
+} */
+.prodTable,tr,td{
+    margin: 30px;
+    border-spacing: 0px;
+}

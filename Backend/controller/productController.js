@@ -16,7 +16,7 @@ let storeProductData = async (request, response) => {
 
 let showAllProduct = async (request, response) => {
     try {
-        let result = await productModel.find({});
+        let result = await productModel.find().sort({_id:1});
         var res = JSON.stringify(result)
         response.send(res);
     } catch (err) {

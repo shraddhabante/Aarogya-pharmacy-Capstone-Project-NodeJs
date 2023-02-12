@@ -9,9 +9,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
-    <script src="custInfo.js"></script>
+    <script src="./Js/adminInfo.js"></script>
     <style>
-        * {
+        /* * {
             box-sizing: border-box;
         }
 
@@ -50,12 +50,12 @@
             font-size: 18px;
             color: black;
             color: white;
-        }
+        } */
     </style>
 </head>
 
 <body>
-    <nav class="sidebar text-white">
+    <!-- <nav class="sidebar text-white">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOciWshHkTzFKgiKMJHUOW3OSQQ8Dv1A8ZWKkYZ2nKPgMmy7MOETlpjOp62raFIl-IOt0&usqp=CAU"
             class="adminImg mt-3" />
         <h5 class="text-center">Admin</h5>
@@ -65,57 +65,40 @@
             <li><a href="#category">Category Details</a></li>
             <li><a href="#product">Product Details</a></li>
         </ul>
-        <!-- <li class="nav-item">
-            <a class="nav-link" href="#customer" style="list-style-type: none;">Customer Details</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#category">Category</a>
-        </li> -->
-    </nav>
-    <main class="content">
-        <h2 class="text-center text-light bg-success p-3 text-dark bg-opacity-50">Welcome to admin home page</h2>
-        <br />
-        <div id="customer" class="m-2">
-            <button onclick="showAllCustomers()">Show Customers</button>
-            <span id="display"></span>
-        </div>
+    </nav> -->
 
-        <div id="Category" class="m-3">
-            <form>
-                <h2>Add Category Details</h2>
-                <label>Enter Id:</label>
-                <input type="number" id="_id" class="m-1"><br />
-                <label>Disease Name:</label>
-                <input type="text" id="dname" class="m-1"><br />
-                <input type="button" value="Add Category" onclick="addCategory()" />
-                <input type="reset" value="Reset" />
-                <input type="button" value="View All Category" onclick="viewAllCategory()">
-            </form>
-            <span id="addCategory" style="color: blue;"></span>
-            <span id="viewCategory"></span>
-        </div>
+    <h2 class="text-center text-light bg-success p-3 text-dark bg-opacity-50">Welcome to admin home page</h2>
+    <br />
+    <div class="text-end mt-0 me-3">
+        <input type="button" value="logout" onclick="logout()" />
+    </div>
 
-        <div id="product" class="m-3">
-            <form>
-                <h2>Add Product Deatils</h2>
-                <label>Product Id:</label>
-                <input type="number" id="_id" class="m-1"><br />
-                <label>Product Name:</label>
-                <input type="text" id="pname" class="m-1"><br />
-                <label>Product Price:</label>
-                <input type="number" id="price" class="m-1"><br />
-                <label>Product Quantity:</label>
-                <input type="number" id="quantity" class="m-1"><br />
-                <label>Category Id:</label>
-                <input type="number" id="categoryId" class="m-1"><br />
-                <input type="button" value="Add Product" onclick="addProduct()" />
-                <input type="reset" value="Reset" />
-                <input type="button" value="View All Product" onclick="viewAllProduct()" />
-            </form>
-            <p id="addProduct" style="color: blue;"></p>
-            <p id="viewProduct"></p>
-        </div>
-    </main>
+    <input type="button" value="Show Customers" onclick="showAllCustomers()" class="btn btn-outline-warning me-2" />
+    <span id="display"></span>
+
+    <!-- <a href="http://127.0.0.1:5555/category.html" class="btn btn-secondary m-5 btn-lg">Add Category</a> -->
+    <a href="http://127.0.0.1:5555/category.html" target="popup" class="btn btn-outline-success"
+        onclick="window.open('http://127.0.0.1:5555/category.html','popup','width=700,height=600,scrollbars=no,resizable=no'); return false;">
+        Add Category
+    </a>
+
+    <a href="http://127.0.0.1:5555/product.html" target="popup" class="btn btn-outline-primary mx-2"
+    onclick="window.open('http://127.0.0.1:5555/product.html','popup','width=700,height=600,scrollbars=no,resizable=no'); return false;">
+    Add Product
+</a>
+
+
+    
+
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>

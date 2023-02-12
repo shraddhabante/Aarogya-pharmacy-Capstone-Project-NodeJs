@@ -15,6 +15,10 @@ let orderSchema=mongoose.Schema({
         type:Number,
         required:[true,"Customer id required"]
     },
+    pQuantity:{
+        type:Number,
+        required:[true,"product quantity required"]
+    },
     amount:{
         type:Number,
         required:[true,"Amount is required"]

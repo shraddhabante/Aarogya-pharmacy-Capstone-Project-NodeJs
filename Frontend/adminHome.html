@@ -10,63 +10,11 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
     <script src="./Js/adminInfo.js"></script>
-    <style>
-        /* * {
-            box-sizing: border-box;
-        }
+    <script src="./Js/order.js"></script>
 
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 250px;
-            height: 100%;
-            background-color: #61876E;
-            z-index: 100;
-        }
-
-        .content {
-            position: relative;
-            left: 250px;
-            width: calc(100%-250px);
-            height: 100vh;
-            background: white;
-            display: flex;
-            flex-direction: column;
-
-        }
-
-        .adminImg {
-            width: 30%;
-            height: 10%;
-            margin-left: 80px;
-        }
-
-        a,
-        li {
-            text-decoration: none;
-            list-style-type: none;
-            margin-bottom: 5px;
-            font-size: 18px;
-            color: black;
-            color: white;
-        } */
-    </style>
 </head>
 
 <body>
-    <!-- <nav class="sidebar text-white">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOciWshHkTzFKgiKMJHUOW3OSQQ8Dv1A8ZWKkYZ2nKPgMmy7MOETlpjOp62raFIl-IOt0&usqp=CAU"
-            class="adminImg mt-3" />
-        <h5 class="text-center">Admin</h5>
-        <h3 class="m-3">Dashboard</h3>
-        <ul class="mt-4">
-            <li><a href="#customer">Customer Details</a></li>
-            <li><a href="#category">Category Details</a></li>
-            <li><a href="#product">Product Details</a></li>
-        </ul>
-    </nav> -->
-
     <h2 class="text-center text-light bg-success p-3 text-dark bg-opacity-50">Welcome to admin home page</h2>
     <br />
     <div class="text-end mt-0 me-3">
@@ -83,12 +31,18 @@
     </a>
 
     <a href="http://127.0.0.1:5555/product.html" target="popup" class="btn btn-outline-primary mx-2"
-    onclick="window.open('http://127.0.0.1:5555/product.html','popup','width=700,height=600,scrollbars=no,resizable=no'); return false;">
-    Add Product
-</a>
+        onclick="window.open('http://127.0.0.1:5555/product.html','popup','width=700,height=600,scrollbars=no,resizable=no'); return false;">
+        Add Product
+    </a>
+
+    <input type="button" value="View Order Deatils" onclick="viewAllOrders()" class="btn btn-outline-warning me-2" />
+    <span id="displayOrder"></span>
 
 
-    
+
+
+
+
 
 
 

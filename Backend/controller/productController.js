@@ -24,18 +24,32 @@ let showAllProduct = async (request, response) => {
     }
 }
 
+// let findProductByName = async (request, response) => {
+//     let product_name = request.body.pname;
+//     try {
+//         let result = await productModel.findOne({ pname: product_name });
+//         // response.json(result);
+//         if (result != null) {
+//             var res = JSON.stringify(result)
+//             response.send(res)
+//         }
+//     } catch (err) {
+//         // response.json(err)
+//         response.json(err)
+//     }
+// }
 let findProductByName = async (request, response) => {
-    let product_name = request.body.pname;
     try {
-        let result = await productModel.findOne({ pname: product_name });
-        // response.json(result);
-        if (result != null) {
-            var res = JSON.stringify(result)
-            response.send(res)
+        let product_name =  request.params.pname;
+        let result = await productModel.findOne({ pname: product_name});
+        if (result == null) {
+            response.json({msg:"Record not found with product name as "+pname})
+        }else{
+            response.json(result);
         }
     } catch (err) {
-        // response.json(err)
         response.json(err)
     }
 }
+
 module.exports = { storeProductData, showAllProduct, findProductByName }

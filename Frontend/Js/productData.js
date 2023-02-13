@@ -93,3 +93,20 @@ function addProduct() {
     }).catch(err => console.log(err));
 }
 
+//find Product by name
+function productName(){
+    var productName=document.getElementById("pname").value;
+    fetch("http://localhost:3000/api/product/findProductByName/"+productName,{
+        method:"get",
+    }).then(res=>res.json()).
+    then(result=>{
+        if(result.msg!=null){
+            opData=document.getElementById("productName");
+            opData.innerHTML=result.msg;
+        }else{
+            opData=document.getElementById("productName");
+            opData.innerHTML="id : "+result._id+"<br>Product Name: "+result.pname+"<br>Price: "+result.price+"<br>Quantity: "+result.quantity+"<br>Category Id: "+result.categoryId;
+        }
+    }).catch(err=>console.log(err));
+}
+

@@ -26,17 +26,21 @@ let showAllCategory = async (request, response) => {
 }
 
 let findCategoryByName = async (request, response) => {
-    let category_name = request.body.dname;
     try {
+        let category_name =  request.params.dname;
         let result = await categoryModel.findOne({ dname: category_name});
         // response.json(result);
-        if (result != null) {
-            var res=JSON.stringify(result)
-            response.send(res)
+        if (result == null) {
+            response.json({msg:"Record not found with disease name as "+dname})
+            // var res=JSON.stringify(result)
+            // response.send(res)
+        }else{
+            response.json(result);
         }
     } catch (err) {
         // response.json(err)
         response.json(err)
     }
 }
+
 module.exports = { addCategoryData, showAllCategory,findCategoryByName }

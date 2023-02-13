@@ -55,11 +55,11 @@ let findUserByEmailId = async (request, response) => {
     try {
         let email = request.params.emailId;
         let result = await loginModel.findOne({ emailId: email });
-        response.json(result);
-        // if (result != null) {
-        //     var res=JSON.stringify(result)
-        //     response.send(res)
-        // }
+        if (result == null) {
+            response.json({msg:"Record not found with email id as "+emailId})
+        }else{
+            response.json(result);
+        }
     } catch (err) {
         response.json(err)
         // response.send("There is no customer exist with email id as "+emailId)

@@ -60,7 +60,22 @@ function addCategory(){
     }).catch(err=>console.log(err));
 }
 
-
+//by category Name
+function categoryName(){
+    var categoryName=document.getElementById("dname").value;
+    fetch("http://localhost:3000/api/category/findCategoryByName/"+categoryName,{
+        method:"get",
+    }).then(res=>res.json()).
+    then(result=>{
+        if(result.msg!=null){
+            opData=document.getElementById("categoryName");
+            opData.innerHTML=result.msg;
+        }else{
+            opData=document.getElementById("categoryName");
+            opData.innerHTML="id : "+result._id+"<br>Disease Name: "+result.dname;
+        }
+    }).catch(err=>console.log(err));
+}
 
 
 

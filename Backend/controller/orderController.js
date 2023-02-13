@@ -13,21 +13,28 @@ let addorderData = async (request, response) => {
         response.json(err)
     }
 }
-
-let findOrderByCustId=async(request,response)=>{
-    let custId = request.body.customerId;
+let showAllOrder = async (request, response) => {
     try {
-        let result = await orderModel.findOne({customerId:custId});
-        // response.json(result);
-        if (result != null) {
-            var res=JSON.stringify(result)
-            response.send(res)
-        }
+        let result = await orderModel.find({});
+        var res = JSON.stringify(result)
+        response.send(res);
+        // response.json(result)
     } catch (err) {
-        // response.json(err)
-        response.send("Error generated",+err)
+        response.json(err);
     }
 }
 
-
-module.exports = { addorderData ,findOrderByCustId}
+let findOrderByCustEmailId = async (request, response) => {
+    try {
+        let custId =  request.params.customerEmailId;
+        let result = await orderModel.findOne({ customerEmailId: custId});
+        if (result == null) {
+            response.json({msg:"Record not found with email id  as "+customerEmailId})
+        }else{
+            response.json(result);
+        }
+    } catch (err) {
+        response.json(err)
+    }
+}
+module.exports = { addorderData ,showAllOrder,findOrderByCustEmailId}

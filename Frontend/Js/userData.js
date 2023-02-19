@@ -2,7 +2,11 @@
 function searchCustomer(){
     var email=document.getElementById("emailId").value;
     fetch("http://localhost:3000/api/login/findUserByEmailId/"+email,{
-        method:"get"
+        method:"get",
+        headers: {
+            "Content-type": "application/json",
+            "authorization":sessionStorage.getItem("token")
+        }
     }).then(res=>res.json())
     .then(result=>{
         if(result.msg!=null){

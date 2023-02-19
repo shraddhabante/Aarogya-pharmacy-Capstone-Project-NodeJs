@@ -2,7 +2,8 @@ let mongoose=require("mongoose");
 mongoose.pluralize(null);
 
 let loginSchema=mongoose.Schema({
-    _id:Number,
+    // _id:Number,
+    // },
     first_name:{
         type:String,
         required:false

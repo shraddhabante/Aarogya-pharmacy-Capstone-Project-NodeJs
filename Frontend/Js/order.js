@@ -13,7 +13,8 @@ function addOrderData() {
         method: "post",
         body: JSON.stringify(order),
         headers: {
-            "Content-type": "application/json"
+            "Content-type": "application/json",
+            "authorization":sessionStorage.getItem("token")
         }
     }).then(res => res.json()).then(result => {
         document.getElementById("addOrder").innerHTML = result.msg;
@@ -27,6 +28,10 @@ function orderByEmailId() {
     var email = document.getElementById("customerEmailId").value;
     fetch("http://localhost:3000/api/order/findOrderByCustId/" + email, {
         method: "get",
+        headers: {
+            "Content-type": "application/json",
+            "authorization":sessionStorage.getItem("token")
+        }
     }).then(res => res.json()).
         then(result => {
             if (result.msg != null) {
@@ -41,7 +46,13 @@ function orderByEmailId() {
 
 
 async function viewAllOrders(){
-    let res = await fetch("http://localhost:3000/api/order/viewOrderData");
+    let res = await fetch("http://localhost:3000/api/order/viewOrderData",{
+        method: "get",
+        headers: {
+            "Content-type": "application/json",
+            "authorization":sessionStorage.getItem("token")
+        }
+    });
     let data = await res.json();
     console.log(data);
     var tableTag = document.createElement("table");

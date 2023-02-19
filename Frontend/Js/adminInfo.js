@@ -22,9 +22,11 @@ function signInData() {
     }).then(res => res.json()).then(result => {
         // document.getElementById("msg").innerHTML = result;
         // console.log(result)
-        if (result.msg == "Admin login Sucessfully") {
+        sessionStorage.setItem("token",result.token);
+        // localStorage.setItem("token",result.token)
+        if (result.msg == "Admin login successfully") {
             window.location.href = "http://127.0.0.1:5555/adminHome.html"
-        } else if (result.msg == "Customer login sucessfully") {
+        } else if (result.msg == "Customer login Sucessfully") {
             window.location.href = "http://127.0.0.1:5555/customerHome.html"
         } else {
             document.getElementById("msg").innerHTML = result.msg;
@@ -76,7 +78,14 @@ function signUpData() {
 //     }).catch(err=>console.log(err));
 // }
 async function showAllCustomers() {
-    let res = await fetch("http://localhost:3000/api/login/showAllCustomers");
+    let res = await fetch("http://localhost:3000/api/login/showAllCustomers",{
+        method:"get",
+        headers:{
+            "Content-type":"application/json",
+            "authorization":sessionStorage.getItem("token")
+            // "authorization":localStorage.getItem("token")
+        }
+    });
     let data = await res.json();
     console.log(data);
     var tableTag = document.createElement("table");

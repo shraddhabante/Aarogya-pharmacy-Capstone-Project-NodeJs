@@ -7,6 +7,10 @@ let categorySchema=mongoose.Schema({
         type:String,
         required:[true,"Disease category name required"],
         unique:true
+    },
+    dImage:{  
+        type:String,
+        required:false
     }
 })
 

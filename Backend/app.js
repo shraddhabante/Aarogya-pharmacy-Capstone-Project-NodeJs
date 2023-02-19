@@ -8,7 +8,10 @@ let accountRouter=require("./router/accountRouter")
 let categoryRouter=require("./router/categoryRouter")
 let productRouter=require("./router/productRouter")
 let orderRouter=require("./router/orderRouter")
+
 dbConfig.dbConnection;
+
+dbConfig.adminAccount();
 
 app.use(express.json());
 app.use(cors());

@@ -14,7 +14,7 @@ function addOrderData() {
         body: JSON.stringify(order),
         headers: {
             "Content-type": "application/json",
-            "authorization":sessionStorage.getItem("token")
+            "authorization":localStorage.getItem("token")
         }
     }).then(res => res.json()).then(result => {
         document.getElementById("addOrder").innerHTML = result.msg;
@@ -30,7 +30,7 @@ function orderByEmailId() {
         method: "get",
         headers: {
             "Content-type": "application/json",
-            "authorization":sessionStorage.getItem("token")
+            "authorization":localStorage.getItem("token")
         }
     }).then(res => res.json()).
         then(result => {
@@ -50,7 +50,7 @@ async function viewAllOrders(){
         method: "get",
         headers: {
             "Content-type": "application/json",
-            "authorization":sessionStorage.getItem("token")
+            "authorization":localStorage.getItem("token")
         }
     });
     let data = await res.json();

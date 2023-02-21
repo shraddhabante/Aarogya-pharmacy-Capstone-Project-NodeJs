@@ -18,6 +18,10 @@ let productSchema=mongoose.Schema({
     categoryId:{
         type:Number,
         required:[true,"category id required"]
+    },
+    pImage:{
+        type:String,
+        required:false
     }
 })
 

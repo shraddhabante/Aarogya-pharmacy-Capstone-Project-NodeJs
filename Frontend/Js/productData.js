@@ -5,13 +5,13 @@ async function viewAllProduct() {
         method: "get",
         headers: {
             "Content-type": "application/json",
-            "authorization":sessionStorage.getItem("token")
+            "authorization":localStorage.getItem("token")
         }
     });
     let data = await res.json();
     console.log(data);
     var tableTag = document.createElement("table");
-    tableTag.setAttribute("class", "table ProdTable table-bordered border-primary");
+    tableTag.setAttribute("class", "table");
     var firstRow = document.createElement("tr");
     firstRow.setAttribute("class","tr")
 
@@ -35,11 +35,16 @@ async function viewAllProduct() {
     var firstRowFifthColumnValue = document.createTextNode("categoryId");
     firstRowFifthColumn.appendChild(firstRowFifthColumnValue);
 
+    var firstRowSixthColumn = document.createElement("th");
+    var firstRowSixthColumnValue = document.createTextNode("pImage");
+    firstRowSixthColumn.appendChild(firstRowSixthColumnValue);
+
     firstRow.appendChild(firstRowFirstColumn);
     firstRow.appendChild(firstRowSecondColumn);
     firstRow.appendChild(firstRowThirdColumn);
     firstRow.appendChild(firstRowFourthColumn);
     firstRow.appendChild(firstRowFifthColumn);
+    firstRow.appendChild(firstRowSixthColumn);
 
     tableTag.appendChild(firstRow);
 
@@ -66,11 +71,19 @@ async function viewAllProduct() {
         var secondRowFifthColumnValue = document.createTextNode(data[i].categoryId);
         secondRowFifthColumn.appendChild(secondRowFifthColumnValue);
 
+        var secondRowSixthColumn = document.createElement("td");
+        var imgTag = document.createElement("img");
+        imgTag.setAttribute("src",data[i].pImage);
+        secondRowSixthColumn.appendChild(imgTag);
+        imgTag.setAttribute("width","130px");
+        imgTag.setAttribute("height","130px");
+
         secondRow.appendChild(secondRowFirstColumn);
         secondRow.appendChild(secondRowSecondColumn);
         secondRow.appendChild(secondRowThirdColumn);
         secondRow.appendChild(secondRowFourthColumn);
         secondRow.appendChild(secondRowFifthColumn);
+        secondRow.appendChild(secondRowSixthColumn);
 
         tableTag.appendChild(secondRow);
     }
@@ -84,14 +97,15 @@ function addProduct() {
     var priceVal = document.getElementById("price").value;
     var quantityVal = document.getElementById("quantity").value;
     var categoryIdVal = document.getElementById("categoryId").value;
-    var product = { _id: idValue, pname: pnameVal, price: priceVal, quantity: quantityVal, categoryId: categoryIdVal };
+    var ProductImg=document.getElementById("pImage").value;
+    var product = { _id: idValue, pname: pnameVal, price: priceVal, quantity: quantityVal, categoryId: categoryIdVal,pImage:ProductImg };
     console.log(product);
     fetch("http://localhost:3000/api/product/storeProductData", {
         method: "post",
         body: JSON.stringify(product),
         headers: {
             "Content-type": "application/json",
-            "authorization":sessionStorage.getItem("token")
+            "authorization":localStorage.getItem("token")
         }
     }).then(res => res.json()).then(result => {
         // document.getElementById("addProduct").innerHTML = result.msg;
@@ -107,7 +121,7 @@ function productName(){
         method:"get",
         headers: {
             "Content-type": "application/json",
-            "authorization":sessionStorage.getItem("token")
+            "authorization":localStorage.getItem("token")
         }
 
     }).then(res=>res.json()).

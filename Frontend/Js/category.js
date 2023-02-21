@@ -5,8 +5,8 @@ async function viewAllCategory(){
         method:"get",
         headers:{
             "Content-type":"application/json",
-            "authorization":sessionStorage.getItem("token")
-            // "authorization":localStorage.getItem("token")
+            // "authorization":sessionStorage.getItem("token")
+            "authorization":localStorage.getItem("token")
         }
     });
     let data=await res.json();
@@ -74,7 +74,7 @@ function addCategory(){
         body:JSON.stringify(category),
         headers:{
             "Content-type":"application/json",
-            "authorization":sessionStorage.getItem("token")
+            "authorization":localStorage.getItem("token")
         }
     }).then(res=>res.json()).then(result=>{
         // document.getElementById("addCategory").innerHTML=result.msg;
@@ -90,7 +90,7 @@ function categoryName(){
         method:"get",
         headers:{
             "Content-type":"application/json",
-            "authorization":sessionStorage.getItem("token")
+            "authorization":localStorage.getItem("token")
         }
 
     }).then(res=>res.json()).

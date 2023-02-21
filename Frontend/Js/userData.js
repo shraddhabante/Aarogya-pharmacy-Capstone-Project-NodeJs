@@ -5,7 +5,7 @@ function searchCustomer(){
         method:"get",
         headers: {
             "Content-type": "application/json",
-            "authorization":sessionStorage.getItem("token")
+            "authorization":localStorage.getItem("token")
         }
     }).then(res=>res.json())
     .then(result=>{

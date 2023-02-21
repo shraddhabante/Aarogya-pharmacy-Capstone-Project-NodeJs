@@ -22,8 +22,8 @@ function signInData() {
     }).then(res => res.json()).then(result => {
         // document.getElementById("msg").innerHTML = result;
         // console.log(result)
-        sessionStorage.setItem("token",result.token);
-        // localStorage.setItem("token",result.token)
+        // sessionStorage.setItem("token",result.token);
+        localStorage.setItem("token",result.token);
         if (result.msg == "Admin login successfully") {
             window.location.href = "http://127.0.0.1:5555/adminHome.html"
         } else if (result.msg == "Customer login Sucessfully") {
@@ -82,8 +82,8 @@ async function showAllCustomers() {
         method:"get",
         headers:{
             "Content-type":"application/json",
-            "authorization":sessionStorage.getItem("token")
-            // "authorization":localStorage.getItem("token")
+            // "authorization":sessionStorage.getItem("token")
+            "authorization":localStorage.getItem("token")
         }
     });
     let data = await res.json();

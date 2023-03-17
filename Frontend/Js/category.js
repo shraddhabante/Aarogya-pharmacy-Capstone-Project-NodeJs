@@ -12,7 +12,7 @@ async function viewAllCategory(){
     let data=await res.json();
     console.log(data);
     var tableTag = document.createElement("table");
-    tableTag.setAttribute("class","table");
+    tableTag.setAttribute("class","table  table-success table-striped-columns");
     var firstRow = document.createElement("tr");
     firstRow.setAttribute("class","tr")
     
@@ -48,7 +48,6 @@ async function viewAllCategory(){
         var secondRowThirdColumn = document.createElement("td");
         var imgTag = document.createElement("img");
         imgTag.setAttribute("src",data[i].dImage);
-        // imgTag.setAttribute("src",data[i].dImage)
         secondRowThirdColumn.appendChild(imgTag);
         imgTag.setAttribute("width","130px");
         imgTag.setAttribute("height","130px");
@@ -97,10 +96,15 @@ function categoryName(){
     then(result=>{
         if(result.msg!=null){
             opData=document.getElementById("categoryName");
+            // document.getElementById("categoryName").style.color="white";
             opData.innerHTML=result.msg;
         }else{
             opData=document.getElementById("categoryName");
-            opData.innerHTML="id : "+result._id+"<br>Disease Name: "+result.dname;
+            // document.getElementById("categoryName").style.color="black";
+            var image=`<img src=${
+                result.dImage 
+            }>`
+            opData.innerHTML="id : "+result._id+"<br>Disease Name: "+result.dname+"<br>Disease Image: "+image;
         }
     }).catch(err=>console.log(err));
 }

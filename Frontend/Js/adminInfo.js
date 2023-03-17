@@ -24,6 +24,7 @@ function signInData() {
         // console.log(result)
         // sessionStorage.setItem("token",result.token);
         localStorage.setItem("token",result.token);
+        localStorage.setItem("emailId",login.emailId)
         if (result.msg == "Admin login successfully") {
             window.location.href = "http://127.0.0.1:5555/adminHome.html"
         } else if (result.msg == "Customer login Sucessfully") {
@@ -93,35 +94,35 @@ async function showAllCustomers() {
     var firstRow = document.createElement("tr");
 
     var firstRowFirstColumn = document.createElement("th");
-    var firstRowFirstColumnValue = document.createTextNode("first_name");
+    var firstRowFirstColumnValue = document.createTextNode("_id");
     firstRowFirstColumn.appendChild(firstRowFirstColumnValue);
 
     var firstRowSecondColumn = document.createElement("th");
-    var firstRowSecondColumnValue = document.createTextNode("last_name");
+    var firstRowSecondColumnValue = document.createTextNode("first_name");
     firstRowSecondColumn.appendChild(firstRowSecondColumnValue);
 
     var firstRowThirdColumn = document.createElement("th");
-    var firstRowThirdColumnValue = document.createTextNode("emailId");
+    var firstRowThirdColumnValue = document.createTextNode("last_name");
     firstRowThirdColumn.appendChild(firstRowThirdColumnValue);
 
     var firstRowFourthColumn = document.createElement("th");
-    var firstRowFourthColumnValue = document.createTextNode("password");
+    var firstRowFourthColumnValue = document.createTextNode("emailId");
     firstRowFourthColumn.appendChild(firstRowFourthColumnValue);
 
     var firstRowFifthColumn = document.createElement("th");
-    var firstRowFifthColumnValue = document.createTextNode("type_of_user");
+    var firstRowFifthColumnValue = document.createTextNode("password");
     firstRowFifthColumn.appendChild(firstRowFifthColumnValue);
 
     var firstRowSixthColumn = document.createElement("th");
-    var firstRowSixthColumnValue = document.createTextNode("address");
+    var firstRowSixthColumnValue = document.createTextNode("type_of_user");
     firstRowSixthColumn.appendChild(firstRowSixthColumnValue);
 
     var firstRowSeventhColumn = document.createElement("th");
-    var firstRowSeventhColumnValue = document.createTextNode("contact");
+    var firstRowSeventhColumnValue = document.createTextNode("address");
     firstRowSeventhColumn.appendChild(firstRowSeventhColumnValue);
 
     var firstRowEighthColumn = document.createElement("th");
-    var firstRowEighthColumnValue = document.createTextNode("_id");
+    var firstRowEighthColumnValue = document.createTextNode("contact");
     firstRowEighthColumn.appendChild(firstRowEighthColumnValue);
 
     firstRow.appendChild(firstRowFirstColumn);
@@ -138,38 +139,39 @@ async function showAllCustomers() {
 
     for (i = 0; i < data.length; i++) {
         var secondRow = document.createElement("tr");
-
         var secondRowFirstColumn = document.createElement("td");
-        var secondRowFirstColumnValue = document.createTextNode(data[i].first_name);
+        var secondRowFirstColumnValue = document.createTextNode(data[i]._id);
         secondRowFirstColumn.appendChild(secondRowFirstColumnValue);
 
         var secondRowSecondColumn = document.createElement("td");
-        var secondRowSecondColumnValue = document.createTextNode(data[i].last_name);
+        var secondRowSecondColumnValue = document.createTextNode(data[i].first_name);
         secondRowSecondColumn.appendChild(secondRowSecondColumnValue);
 
         var secondRowThirdColumn = document.createElement("td");
-        var secondRowThirdColumnValue = document.createTextNode(data[i].emailId);
+        var secondRowThirdColumnValue = document.createTextNode(data[i].last_name);
         secondRowThirdColumn.appendChild(secondRowThirdColumnValue);
 
         var secondRowFourthColumn = document.createElement("td");
-        var secondRowFourthColumnValue = document.createTextNode(data[i].password);
+        var secondRowFourthColumnValue = document.createTextNode(data[i].emailId);
         secondRowFourthColumn.appendChild(secondRowFourthColumnValue);
 
         var secondRowFifthColumn = document.createElement("td");
-        var secondRowFifthColumnValue = document.createTextNode(data[i].type_of_user);
+        var secondRowFifthColumnValue = document.createTextNode(data[i].password);
         secondRowFifthColumn.appendChild(secondRowFifthColumnValue);
 
         var secondRowSixthColumn = document.createElement("td");
-        var secondRowSixthColumnValue = document.createTextNode(data[i].address);
+        var secondRowSixthColumnValue = document.createTextNode(data[i].type_of_user);
         secondRowSixthColumn.appendChild(secondRowSixthColumnValue);
 
         var secondRowSeventhColumn = document.createElement("td");
-        var secondRowSeventhColumnValue = document.createTextNode(data[i].contact);
+        var secondRowSeventhColumnValue = document.createTextNode(data[i].address);
         secondRowSeventhColumn.appendChild(secondRowSeventhColumnValue);
 
         var secondRowEighthColumn = document.createElement("td");
-        var secondRowEighthColumnValue = document.createTextNode(data[i]._id);
+        var secondRowEighthColumnValue = document.createTextNode(data[i].contact);
         secondRowEighthColumn.appendChild(secondRowEighthColumnValue);
+
+       
 
         secondRow.appendChild(secondRowFirstColumn);
         secondRow.appendChild(secondRowSecondColumn);

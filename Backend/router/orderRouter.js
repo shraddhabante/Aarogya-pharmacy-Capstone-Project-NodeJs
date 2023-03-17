@@ -7,6 +7,6 @@ let authToken=require("../config/authToken")
 //http://localhost:3000/api/login/signUpData
 router.post("/addorderData",authToken.verifyUserToken,authToken.isCustomerOrAdmin,orderController.addorderData);
 router.get("/viewOrderData",authToken.verifyUserToken,authToken.isCustomerOrAdmin,orderController.showAllOrder);
-router.get("/findOrderByCustId/:customerEmailId",authToken.verifyUserToken,authToken.isCustomerOrAdmin,orderController.findOrderByCustEmailId)
+router.get("/findOrderByCustId/:customerEmailId",orderController.findOrderByCustEmailId)
 
 module.exports=router;

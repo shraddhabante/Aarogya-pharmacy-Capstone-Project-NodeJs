@@ -25,7 +25,8 @@ function addOrderData() {
 
 //view Order details by id
 function orderByEmailId() {
-    var email = document.getElementById("customerEmailId").value;
+    // var email = document.getElementById("customerEmailId").value;
+    var email=localStorage.getItem("emailId")
     fetch("http://localhost:3000/api/order/findOrderByCustId/" + email, {
         method: "get",
         headers: {
@@ -36,10 +37,12 @@ function orderByEmailId() {
         then(result => {
             if (result.msg != null) {
                 opData = document.getElementById("viewOrder");
+                // document.getElementById("viewOrder").style.color="white";
                 opData.innerHTML = result.msg;
             } else {
                 opData = document.getElementById("viewOrder");
-                opData.innerHTML = "id : " + result._id + "<br>Category id: " + result.categoryId + "<br>Product Id: " + result.productId + "<br>Customer EmailId:" + result.customerEmailId + "<br>Product Quanity: " + result.pQuantity + "<br>Amount: " + result.amount + "<br>Order Date :" + result.orderDate;
+                // document.getElementById("viewOrder").style.color="white";
+                opData.innerHTML = "id : " + result._id + "<br>Category id: " + result.categoryId + "<br>Product Id: " + result.productId + "<br>Email Id:" + result.customerEmailId + "<br>Product Quanity: " + result.pQuantity + "<br>Amount: " + result.amount + "<br>Order Date :" + result.orderDate;
             }
         }).catch(err => console.log(err));
 }

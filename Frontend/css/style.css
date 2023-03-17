@@ -1,4 +1,30 @@
+.custHome{
+    width: 100%;
+    height: 650px;
+    /* border: 1px solid black; */
+    border-radius: 10px;
+    margin: 30px;
+}
+.custImg{
+    background-image: url("../image/custHome1.jpg");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* position: absolute; */
 
+}
+.custHead{
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    /* padding-top: 120px; */
+    width: 100%;
+    height: 650px;
+    border-radius: 10px;
+}
+.formIp{
+    padding-left: 100px;
+    padding-right: 100px;
+}
 /* .categoryTab,
 tr,
 td {

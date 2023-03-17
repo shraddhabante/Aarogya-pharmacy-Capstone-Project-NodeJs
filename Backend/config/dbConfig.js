@@ -16,37 +16,13 @@ let adminAccount=async function(){
     let result=await loginModel.findOne({"emailId":admin.emailId});
     if(result==null){
         loginModel.insertMany(admin);
-        // console.log(admin.password);
-        // console.log(admin.type_of_user);
-        // console.log(admin.emailId)
         console.log("admin account created")
     }else{
         console.log("admin account exists")
     }
 }
 
-// let adminAccount=async(request,response)=>{
-//     try{
-//         let admin={
-//             emailId:"admin@gmail.com",
-//             password:"admin@123",
-//             type_of_user:"admin"
-//         };
 
-//         let result=await loginModel.findOne({type_of_user:admin.type_of_user});
-//         console.log(result)
-//         if(result==null){
-//             admin.password=await passwordHashConfig.convertPasswordInHash(admin.password) 
-//             loginModel.insertMany(admin);
-//             console.log(admin.password)
-//             console.log("admin account created")
-//         }else{
-//             console.log("admin account exists")
-//         }
-//     }catch(err){
-//         console.log(err)
-//     }
-// }
 
 
 

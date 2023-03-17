@@ -11,6 +11,7 @@ exports.verifyUserToken = (request, response, next) => {
         } else {
             let verifyToken = jwt.verify(token, "secretKey");
             request.type_of_user = verifyToken.type_of_user;
+            
             // console.log(verifyToken)
             next();
         }
@@ -30,7 +31,7 @@ exports.isCustomerOrAdmin = (request, response, next) => {
         if (request.type_of_user == "admin" && (request.path == "/showAllCustomers" || request.path == "/addCategoryData"||request.path=="/showAllCategory" ||request.path=="/storeProductData"|| request.path=="/showAllProduct"||request.path=="/viewOrderData")) {
             console.log("admin condition");
             next();
-        } else if (request.type_of_user == "customer" && (request.path == "/findUserByEmailId/:emailId" ||request.path=="/showAllCategory"||request.path=="/findCategoryByName/:dname"|| request.path=="/showAllProduct"||request.path=="/findProductByName/:pname"||request.path=="/addorderData"||request.path=="/findOrderByCustId/:customerEmailId")){
+        } else if (request.type_of_user == "customer" && (request.path=="/findUserByEmailId/"||request.path=="/showAllCategory"|| request.path=="/showAllProduct"||request.path=="/addorderData")){
             console.log("customer condition");
             next();
         } else {

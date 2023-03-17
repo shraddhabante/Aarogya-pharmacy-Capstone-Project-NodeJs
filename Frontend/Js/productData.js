@@ -128,10 +128,15 @@ function productName(){
     then(result=>{
         if(result.msg!=null){
             opData=document.getElementById("productName");
+            // document.getElementById(productName).style.color="white"
             opData.innerHTML=result.msg;
         }else{
             opData=document.getElementById("productName");
-            opData.innerHTML="id : "+result._id+"<br>Product Name: "+result.pname+"<br>Price: "+result.price+"<br>Quantity: "+result.quantity+"<br>Category Id: "+result.categoryId;
+            // document.getElementById("productName").style.color="white"
+            var image=`<img src=${
+                result.pImage
+            }>`
+            opData.innerHTML="id : "+result._id+"<br>Product Name: "+result.pname+"<br>Price: "+result.price+"<br>Quantity: "+result.quantity+"<br>Category Id: "+result.categoryId+"<br>Product Image: "+image;
         }
     }).catch(err=>console.log(err));
 }

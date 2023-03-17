@@ -7,7 +7,7 @@ let authToken=require("../config/authToken")
 
 router.get("/showAllCustomers",authToken.verifyUserToken,authToken.isCustomerOrAdmin,loginController.showAllCustomers)
 
-router.get("/findUserByEmailId/:emailId",authToken.verifyUserToken,authToken.isCustomerOrAdmin,loginController.findUserByEmailId)
+router.get("/findUserByEmailId/:emailId",loginController.findUserByEmailId)
 
 router.post("/signUpData",loginController.signUpData)
 

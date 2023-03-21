@@ -40,18 +40,21 @@ async function getProductData(){
     return (
         <div>
             <form onSubmit={updateProductData}>
+                <h2 className="mt-5">Update Product Details!</h2>
+                <div className="container mx-auto col-md-4 p-3 bg-info bg-opacity-10 border border-info border-start rounded">
                 <label>Product Name</label>
-                <input type="text" name="pname" onChange={(e) => setProductName(e.target.value)} /><br />
+                <input type="text" name="pname" className="m-1"onChange={(e) => setProductName(e.target.value)} /><br />
                 <label>Price</label>
-                <input type="number" name="price" onChange={(e) => setPrice(e.target.value)} /><br />
+                <input type="number" name="price" className="m-1" onChange={(e) => setPrice(e.target.value)} /><br />
                 <label>Quantity</label>
-                <input type="number" name="quantity" onChange={(e) => setQuantity(e.target.value)} /><br />
+                <input type="number" name="quantity" className="m-1" onChange={(e) => setQuantity(e.target.value)} /><br />
                 <label>Category Id</label>
-                <input type="number" name="categoryId" onChange={(e) => setCategoryId(e.target.value)} /><br />
+                <input type="number" name="categoryId" className="m-1" onChange={(e) => setCategoryId(e.target.value)} /><br />
                 <label>Product Image</label>
-                <input type="url" name="pImage" onChange={(e) => setProductImg(e.target.value)} /><br />
-                <input type="submit" value="Add Category" />
-                <input type="reset" value="reset" />
+                <input type="url" name="pImage" className="m-1" onChange={(e) => setProductImg(e.target.value)} /><br />
+                <input type="submit" value="Update product" className="btn btn-info m-3"/>
+                <input type="reset" value="reset" className="btn btn-info m-3"/>
+                </div>
             </form>
         </div>
     )

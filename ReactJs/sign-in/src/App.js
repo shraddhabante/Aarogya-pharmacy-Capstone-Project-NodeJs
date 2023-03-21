@@ -19,6 +19,7 @@ import ShowAllCategory from './Components/Customer/ShowAllCategory';
 import ViewProduct from './Components/Admin/ViewProduct';
 import UpdateProduct from './Components/Admin/UpdateProduct';
 import SignUp from './SignUp';
+import Order from './Components/Customer/Order';
 
 function App() {
   
@@ -36,6 +37,7 @@ function App() {
         <Route path='/customerhome' element={<CustomerHome></CustomerHome>}></Route>
 
         {/* admin page */}
+
         <Route path='/adminhome/showallcustomer' element={<ShowAllCustomer></ShowAllCustomer>}></Route>
         <Route path='/adminhome/addcategory' element={<AddCategory></AddCategory>}></Route>
         <Route path='/adminhome/viewcategory' element={<ViewCategory></ViewCategory>}></Route>
@@ -50,6 +52,7 @@ function App() {
         <Route path='/customerhome/showcategory' element={<ShowAllCategory></ShowAllCategory>}></Route>
         <Route path='/customerhome/showproduct' element={<ShowAllProduct></ShowAllProduct>}></Route>
         <Route path='/customerhome/categorybyname' element={<CategoryByName></CategoryByName>}></Route>
+        <Route path='customerhome/order' element={<Order></Order>}></Route>
       </Routes>
     </div>
   );

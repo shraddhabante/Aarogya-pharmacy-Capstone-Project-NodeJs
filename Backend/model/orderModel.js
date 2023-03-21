@@ -3,12 +3,12 @@ mongoose.pluralize(null);
 
 let orderSchema=mongoose.Schema({
     // _id:Number,
-    categoryId:{
-        type:Number,
+    categoryName:{
+        type:String,
         required:[true,"category id required"]
     },
-    productId:{
-        type:Number,
+    productName:{
+        type:String,
         required:[true,"Product id is required"]
     },
     customerEmailId:{

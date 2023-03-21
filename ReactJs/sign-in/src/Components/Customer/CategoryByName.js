@@ -21,7 +21,7 @@ function CategoryByName() {
             setResult(false);
             console.log(result.data.msg)
         }
-        alert(result.data.msg)
+        // alert(result.data.msg)
     }
 
 
@@ -31,8 +31,29 @@ function CategoryByName() {
             <label>Category Name</label>
             <input type="search" name="dname" onChange={(e) => setDname(e.target.value)} />
             <br />
-            <input type="button" value="Search Category Name" onClick={searchCategory} />
-            <br />
+            <div>
+            <input type="button" value="Search" onClick={searchCategory} />
+            {result}
+            <div className="container ms-5">
+                
+                    <div className="card-container col-lg-4" key={category._id}>
+                        <div>
+                            <div className="catName">
+                                <img src={category.dImage} width="100%" height="100%" />
+                            </div>
+                            <div className="text-center fs-3 fw-bold">
+                                {/* <h2>{c._id}</h2> */}
+                                <h3>{category.dname}</h3>
+                            </div>
+
+                        </div>
+                    </div>
+
+              
+            </div>
+            </div>
+
+            {/* <br />
             {msg}
             <br />
             {result}
@@ -49,7 +70,7 @@ function CategoryByName() {
                     <td>{category.dname}</td>
                     <td><img src={category.dImage} width="200px" height="200px" /></td>
                 </tbody>
-            </table>
+            </table> */}
 
             {/* {result?"Employee Id is "+category._id+"Name is "+category.dname:""} */}
 

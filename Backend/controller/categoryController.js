@@ -36,7 +36,7 @@ let findCategoryByName = async (request, response) => {
             // var res=JSON.stringify(result)
             // response.send(res)
         }else{
-            response.json({"msg":"Record Present","category":result});
+            response.json({"msg":"Record Present",category:result});
         }
     } catch (err) {
         // response.json(err)

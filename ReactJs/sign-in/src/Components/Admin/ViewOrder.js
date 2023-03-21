@@ -21,7 +21,7 @@ function ViewOrder() {
         viewOrderData();
     },[])
 
-    let orderData=order.map(o=><tr key={o._id}><td>{o._id}</td><td>{o.categoryId}</td><td>{o.productId}</td><td>{o.customerEmailId}</td><td>{o.pQuantity}</td><td>{o.amount}</td><td>{o.orderDate}</td></tr>)
+    let orderData=order.map(o=><tr key={o._id}><td>{o._id}</td><td>{o.categoryName}</td><td>{o. productName}</td><td>{o.customerEmailId}</td><td>{o.pQuantity}</td><td>{o.amount}</td><td>{o.orderDate}</td></tr>)
     return (
         <div className="text-center mx-auto">
             <h2>All Order Details!</h2>
@@ -29,8 +29,8 @@ function ViewOrder() {
                 <thead className="table-info">
                     <tr>
                         <th>Id</th>
-                        <th>Category Id</th>
-                        <th>Product Id</th>
+                        <th>Category Name</th>
+                        <th>Product Name</th>
                         <th>Email Id</th>
                         <th>Product Quantity</th>
                         <th>Amount</th>

@@ -18,7 +18,7 @@ function Navbar() {
                         </div>
                     </div>
                     <form className="d-flex" role="search">
-                        <Link to="/loginpage" className="btn">SignIn</Link>
+                        <Link to="/loginpage" className="btn btn-outline-dark"><i class="fa-solid fa-right-to-bracket"></i> SignIn</Link>
 
                         {/* <button className="btn btn-outline-success" type="submit">Search</button> */}
                     </form>
@@ -26,18 +26,20 @@ function Navbar() {
 
             </nav >
             <section className="bodyImg" id="home">
-                <h2 className="m-5 lh-5 fw-bold text-center">
+                <h2 className="p-5 lh-5 fw-bold text-center">
                     Welcome to <br />Aarogya Pharmacy Management System!
                 </h2>
                 <div id="home" className="container d-flex">
                     <div className="homeImg">
                         <img src="./image/homeImg2.jpg" width="100%" height="100%" />
                     </div>
-                    <div className="pt-4 mx-5">
-                        <i className="fw-bold fs-5 px-5">Medicine delivered discreetly to your door</i>
-                        <p className="pt-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi nihil vitae commodi repellat ipsa
-                            distinctio, sequi magni aperiam aspernatur aut ducimus soluta exercitationem ex nam odit. Dolor voluptatibus
-                            architecto impedit!</p>
+                    <div className="p-5" style={{width:"50%"}}>
+                        <i className="fw-bold px-5 fs-4">Medicine delivered discreetly to your door</i>
+                        <p className="pt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas laborum
+                            animi quam. Vero consectetur beatae fugit facere id quidem blanditiis, ipsa harum modi
+                            nostrum libero adipisci natus dignissimos aperiam! Ea blanditiis eveniet, quod repellat
+                            accusantium praesentium animi magnam quibusdam libero voluptate esse eligendi incidunt
+                            veniam, possimus quos quam reiciendis laboriosam</p>
                     </div>
                 </div>
             </section>
@@ -45,7 +47,7 @@ function Navbar() {
                 <div className="container">
                     <h2 className="text-center my-5">New product Available</h2>
                     <div className="d-flex justify-content-evenly text-center">
-                        <div className="card" style={{ boxShadow: "0 0 1px" }}>
+                        <div className="card" style={{ boxShadow: "0 0 1px" ,listStyleType:"none"}}>
                             <h5 style={{ backgroundColor: "rgba(222, 184, 135, 0.873)" }} className="p-3">
                                 Syrup
                             </h5>
@@ -54,7 +56,7 @@ function Navbar() {
                             <li>Antihistamines</li>
                             <img src="./image/syrupImg.jpg" className="card-body" width="300px" height="200px" />
                         </div>
-                        <div className="card" style={{ boxShadow: "0 0 1px" }}>
+                        <div className="card" style={{ boxShadow: "0 0 1px" ,listStyleType:"none"}}>
                             <h5 style={{ backgroundColor: " rgba(222, 184, 135, 0.873)" }} className="p-3">
                                 Tablet
                             </h5>
@@ -63,7 +65,7 @@ function Navbar() {
                             <li>Chewing Tablet</li>
                             <img src="./image/capsuleImg.jpg" className="card-body" width="300px" height="200px" />
                         </div>
-                        <div className="card" style={{ boxShadow: "0 0 1px" }}>
+                        <div className="card" style={{ boxShadow: "0 0 1px",listStyleType:"none" }}>
                             <h5 style={{ backgroundColor: "rgba(222, 184, 135, 0.873)" }} className="p-3">
                                 Powder
                             </h5>
@@ -236,32 +238,32 @@ function Navbar() {
                 </div>
             </section>
             <footer>
-                <div style={{backgroundColor: "rgb(7, 7, 78)" }}class="text-white">
-                    <div class="container">
-                        <div class="d-flex">
-                            <div class="col-lg-4 mt-3">
+                <div style={{backgroundColor: "rgb(7, 7, 78)" }}className="text-white">
+                    <div className="container">
+                        <div className="d-flex">
+                            <div className="col-lg-4 mt-3">
                                 <h3>Our Address</h3>
                                 <p>
-                                    <i class="fa-solid fa-location-dot"></i> 1418 Riverwood
+                                    <i className="fa-solid fa-location-dot"></i> 1418 Riverwood
                                     Drive,<br />
                                     Suite 3845 Cottonwood,<br />
                                     CA 96022<br />
                                     United States
                                 </p>
                             </div>
-                            <div class="col-lg-4 mt-3" style={{listStyleType:"none"}}>
+                            <div className="col-lg-4 mt-3" style={{listStyleType:"none"}}>
                                 <h3>Contact Info</h3>
-                                <li><i class="fa-solid fa-phone"></i> +9976564534</li>
-                                <li><i class="fa-solid fa-envelope"></i> arogya@gmail.com</li>
-                                <li><i class="fa-solid fa-house-medical"></i> Chennai,India</li>
+                                <li><i className="fa-solid fa-phone"></i> +9976564534</li>
+                                <li><i className="fa-solid fa-envelope"></i> arogya@gmail.com</li>
+                                <li><i className="fa-solid fa-house-medical"></i> Chennai,India</li>
                             </div>
-                            <div class="col-lg-4 mt-3">
+                            <div className="col-lg-4 mt-3">
                                 <h3>Follow Us</h3>
-                                <div class="mt-4">
-                                    <i class="fa-brands fa-instagram fa-2x m-2"></i>
-                                    <i class="fa-brands fa-facebook fa-2x m-2"></i>
-                                    <i class="fa-brands fa-twitter fa-2x m-2"></i>
-                                    <i class="fa-regular fa-envelope fa-2x m-2"></i>
+                                <div className="mt-4">
+                                    <i className="fa-brands fa-instagram fa-2x m-2"></i>
+                                    <i className="fa-brands fa-facebook fa-2x m-2"></i>
+                                    <i className="fa-brands fa-twitter fa-2x m-2"></i>
+                                    <i className="fa-regular fa-envelope fa-2x m-2"></i>
                                 </div>
                             </div>
                         </div>

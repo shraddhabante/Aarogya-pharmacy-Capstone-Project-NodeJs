@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function SignUp() {
     let [first_name, setFirstName] = useState();
     let [last_name, setLastName] = useState();
-    let [emailid, setEmail] = useState();
+    let [emailId, setEmail] = useState();
     let [password, setPassword] = useState();
     let [address, setAddress] = useState();
     let [contact, setContact] = useState();
@@ -14,9 +14,13 @@ function SignUp() {
 
     async function signUpData(event) {
         event.preventDefault();
-        var signUp = { first_name: first_name, last_name: last_name, emailId: emailid, password: password, type_of_user: type_of_user, address: address, contact: contact }
-        let result = await axios.post("http://localhost:3000/api/login/signUpData", signUp);
-        console.log(result.data.msg)
+        try {
+            var signUp = { first_name: first_name, last_name: last_name, emailId: emailId, password: password, type_of_user: type_of_user, address: address, contact: contact }
+            let result = await axios.post("http://localhost:3000/api/login/signUpData", signUp);
+            console.log(result.data.msg)
+        } catch (err) {
+            console.log(err);
+        }
     }
 
     return (
@@ -29,7 +33,7 @@ function SignUp() {
                 <label>First Name</label>
                 <input type="text" name="first_name" className="my-1 mt-4" onChange={(e) => setFirstName(e.target.value)} />
                 <label>Last Name</label>
-                <input type="text" name="last_name" className="m-1" onChange={(e) => setLastName(e.target.value)}/><br/>
+                <input type="text" name="last_name" className="m-1" onChange={(e) => setLastName(e.target.value)} /><br />
                 <label>Email Id</label>
                 <input type="email" name="emailId" className="m-1 mt-4" onChange={(e) => setEmail(e.target.value)} />
                 <label>Password</label>

@@ -33,7 +33,7 @@ function ViewProduct() {
     // let productData=product.map(p=><tr key={p._id}><td>{p._id}</td><td>{p.pname}</td><td>{p.price}</td><td>{p.quantity}</td><td>{p.categoryId}</td><td><img src={p.pImage} width="200px" height="200px"/></td></tr>)
     return (
         <div>
-            <Link to="/adminhome/addproduct" className="btn btn-primary">Add Category</Link>
+            <Link to="/adminhome/addproduct" className="btn btn-primary">Add Product</Link>
             <h2>All Product Details!</h2>
             <table className="mx-auto table">
                 <thead className="table-primary">

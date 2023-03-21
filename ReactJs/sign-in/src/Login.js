@@ -41,7 +41,7 @@ function Login() {
                     <input type="radio" name="typeOfUser" value="admin" onClick={(e) => setTypeOfUser(e.target.value)} className="m-2"/>Admin<br />
                     <input type="submit" value="submit" className="px-4 ms-5 mt-2 me-2 btn btn-info btn-sm"/>
                     <input type="reset" value="reset"className="px-4 ms-5 mt-2 me-2 btn btn-info btn-sm" />
-                    <p class="mt-3 text-center">Don't have an account?<Link to="/signup">Sign Up</Link></p>
+                    <p className="mt-3 text-center">Don't have an account?<Link to="/signup">Sign Up</Link></p>
                 </form>
             </div>
         </div>

@@ -12,16 +12,18 @@ function FindUserData() {
     }, [])
 
     async function userData() {
-        let email = sessionStorage.getItem("emailId")
-        let result = await axios.get("http://localhost:3000/api/login/findUserByEmailId/" + email, {
+        // let email = sessionStorage.getItem("emailId")
+        let result = await axios.get("http://localhost:3000/api/login/findUserByEmailId/" + emailId, {
             headers: { "authorization": sessionStorage.getItem("token") }
         });
         setCustomer(result.data)
+        console.log(result.data)
     }
     return (
         <div>
-            <div className="column is-half">
-                <table className="table is-striped is-fullwidth mt-5">
+
+            {/* <div className="">
+                <table className="table">
                     <thead>
                         <tr>
                             <th>Id</th>
@@ -35,25 +37,21 @@ function FindUserData() {
                         </tr>
                     </thead>
                     <tbody>
-                        {customer.map((cust,index)=>{
+                        {customer.map(cust =>
                             <tr key={cust._id}>
-                                <td>{index+1}</td>
+                                <td>{cust._id}</td>
                                 <td>{cust.first_name}</td>
                                 <td>{cust.last_name}</td>
                                 <td>{cust.emailId}</td>
                                 <td>{cust.password}</td>
                                 <td>{cust.type_of_user}</td>
                                 <td>{cust.address}</td>
-                                <td>{cust.contatc}</td>
-                                <td>
-                                    <button className="button is-info is-small">Edit</button>
-                                    <button className="button is-info is-small">Delete</button>
-                                </td>
+                                <td>{cust.contact}</td>
                             </tr>
-                        })}
+                        )}
                     </tbody>
                 </table>
-            </div>
+            </div> */}
         </div>
     )
 }
